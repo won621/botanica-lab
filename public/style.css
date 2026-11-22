@@ -1,0 +1,368 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #10251d;
+    color: #f1eadb;
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* 상단 메뉴 */
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    border-bottom: 1px solid #45594b;
+    background-color: #10251d;
+}
+
+header h1 {
+    color: #d4bd83;
+    font-size: 26px;
+    letter-spacing: 3px;
+}
+
+header p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: #f1eadb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d4bd83;
+}
+
+/* 페이지 공통 영역 */
+main {
+    min-height: 650px;
+    padding: 110px 10%;
+    background: linear-gradient(
+        135deg,
+        #10251d,
+        #193629
+    );
+}
+
+main h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: #f1eadb;
+}
+
+main p {
+    color: #c5c5b8;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+/* 메인 페이지 버튼 */
+main > a {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 15px;
+    border: 1px solid #d4bd83;
+    color: #d4bd83;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+main > a:hover {
+    background-color: #d4bd83;
+    color: #10251d;
+}
+
+/* 식물 및 상품 카드 */
+.plant-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.plant-list article {
+    background-color: #1b3529;
+    border: 1px solid #45594b;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.plant-list article:hover {
+    border-color: #d4bd83;
+    transform: translateY(-5px);
+}
+
+.plant-list article img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.plant-list article h3 {
+    color: #d4bd83;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.plant-list article p {
+    color: #c5c5b8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.plant-list article a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d4bd83;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.plant-list article a:hover {
+    text-decoration: underline;
+}
+
+/* 식물 상세 이미지 */
+.plant-detail-image {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+/* 식물 상세 정보 */
+.plant-information {
+    max-width: 700px;
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #1b3529;
+    border: 1px solid #45594b;
+}
+
+.plant-information h3 {
+    color: #d4bd83;
+    font-size: 22px;
+    margin: 25px 0 15px;
+}
+
+.plant-information h3:first-child {
+    margin-top: 0;
+}
+
+.plant-information p {
+    color: #d5d5c9;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* 입력 폼 */
+form {
+    max-width: 600px;
+    margin-top: 40px;
+    padding: 35px;
+    background-color: #1b3529;
+    border: 1px solid #45594b;
+}
+
+form h3 {
+    color: #d4bd83;
+    margin: 0 0 25px;
+    font-size: 20px;
+}
+
+form p {
+    margin-bottom: 8px;
+}
+
+form input,
+form textarea,
+form select {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    background-color: #10251d;
+    color: #f1eadb;
+    border: 1px solid #667766;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: #d4bd83;
+}
+
+form button {
+    padding: 15px 25px;
+    margin-top: 10px;
+    background-color: #d4bd83;
+    color: #10251d;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #e5d5a7;
+}
+
+/* 작은 화면 대응 */
+@media (max-width: 900px) {
+    .plant-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 70px 6%;
+    }
+
+    main h2 {
+        font-size: 28px;
+    }
+
+    .plant-list {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}
+
+
+
+
+/* 홈 화면 */
+.home-main {
+    min-height: 750px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 25, 18, 0.95),
+            rgba(8, 25, 18, 0.25)
+        ),
+        url('/images/main-greenhouse.jpg') center/cover no-repeat;
+}
+
+.home-content {
+    max-width: 700px;
+}
+
+.home-label {
+    color: #d4bd83;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.home-content h2 {
+    font-size: 52px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.home-content > p:not(.home-label) {
+    color: #e0dfd4;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.home-content a {
+    display: inline-block;
+    padding: 16px 32px;
+    border: 1px solid #d4bd83;
+    color: #d4bd83;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.home-content a:hover {
+    background: #d4bd83;
+    color: #10251d;
+}
+
+@media (max-width: 600px) {
+    .home-main {
+        min-height: 600px;
+    }
+
+    .home-content h2 {
+        font-size: 34px;
+    }
+}
+
+/* 브랜드 소개 배경 */
+.about-main {
+    min-height: 750px;
+    background:
+        linear-gradient(
+            rgba(8, 25, 18, 0.78),
+            rgba(8, 25, 18, 0.78)
+        ),
+        url('/images/main-greenhouse.jpg') center/cover no-repeat;
+}
+/* 문의하기 배경 */
+.contact-main {
+    min-height: 750px;
+    background:
+        linear-gradient(
+            rgba(8, 25, 18, 0.82),
+            rgba(8, 25, 18, 0.82)
+        ),
+        url('/images/main-greenhouse.jpg') center/cover no-repeat;
+}
+
+.contact-main form {
+    background-color: rgba(16, 37, 29, 0.9);
+    backdrop-filter: blur(5px);
+}

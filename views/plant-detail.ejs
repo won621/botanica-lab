@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= plant.name %> | BOTANICA LAB</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>BOTANICA LAB</h1>
+            <p>YOUR SPACE, YOUR PLANT.</p>
+        </div>
+
+        <nav>
+            <a href="/">홈</a>
+            <a href="/plants">식물 도감</a>
+        </nav>
+    </header>
+
+    <main>
+        <img class="plant-detail-image" src="/images/<%= plant.image %>" alt="<%= plant.name %>">
+
+    	<h2><%= plant.name %></h2>
+        <p><%= plant.scientific_name %></p>
+
+        <section class="plant-information">
+        <h3>식물 소개</h3>
+        <p><%= plant.description %></p>
+
+        <h3>관리 정보</h3>
+        <p>햇빛: <%= plant.sunlight %></p>
+        <p>물 주기: <%= plant.water %></p>
+        <p>습도: <%= plant.humidity %></p>
+    </section>
+
+    <a href="/plants">식물 도감으로 돌아가기</a>
+</main>
+
+</body>
+</html>

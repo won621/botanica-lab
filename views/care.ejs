@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식물 관리 | BOTANICA LAB</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>BOTANICA LAB</h1>
+            <p>YOUR SPACE, YOUR PLANT.</p>
+        </div>
+
+        <nav>
+            <a href="/">홈</a>
+            <a href="/plants">식물 도감</a>
+            <a href="/recommend">식물 추천</a>
+            <a href="/care">식물 관리</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>식물 관리 가이드</h2>
+        <p>건강한 식물을 위한 기본 관리 정보를 확인해 보세요.</p>
+
+        <section class="plant-list">
+            <% plants.forEach(function(plant) { %>
+                <article>
+                    <img src="/images/<%= plant.image %>" alt="<%= plant.name %>">
+                    <h3><%= plant.name %></h3>
+
+                    <p>햇빛: <%= plant.sunlight %></p>
+                    <p>물 주기: <%= plant.water %></p>
+                    <p>습도: <%= plant.humidity %></p>
+
+                    <a href="/plants/<%= plant.id %>">자세히 알아보기</a>
+                </article>
+            <% }); %>
+        </section>
+
+    </main>
+
+</body>
+</html>

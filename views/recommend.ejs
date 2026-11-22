@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식물 추천 | BOTANICA LAB</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>BOTANICA LAB</h1>
+            <p>YOUR SPACE, YOUR PLANT.</p>
+        </div>
+
+        <nav>
+            <a href="/">홈</a>
+            <a href="/plants">식물 도감</a>
+            <a href="/recommend">식물 추천</a>
+	    <a href="/care">식물 관리</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>나에게 맞는 식물 찾기</h2>
+        <p>당신의 공간 환경에 어울리는 식물을 발견해 보세요.</p>
+
+        <form action="/recommend" method="POST">
+
+            <h3>우리 방에는 햇빛이 얼마나 들어오나요?</h3>
+
+            <select name="sunlight" required>
+                <option value="">햇빛 조건 선택</option>
+                <option value="밝은 간접광">밝은 간접광</option>
+                <option value="간접광">간접광</option>
+                <option value="간접광 또는 약한 빛">간접광 또는 약한 빛</option>
+                <option value="약한 간접광">약한 간접광</option>
+            </select>
+
+            <h3>우리 방의 습도는 어떤가요?</h3>
+
+            <select name="humidity" required>
+                <option value="">습도 조건 선택</option>
+                <option value="낮은 습도">낮은 습도</option>
+                <option value="보통 습도">보통 습도</option>
+                <option value="높은 습도">높은 습도</option>
+            </select>
+
+            <button type="submit">나에게 맞는 식물 찾기</button>
+
+        </form>
+
+        <% if (plants !== null) { %>
+
+            <h2>추천 식물</h2>
+
+            <% if (plants.length === 0) { %>
+                <p>조건에 맞는 식물이 없습니다. 다른 조건으로 찾아보세요.</p>
+            <% } %>
+
+            <section class="plant-list">
+                <% plants.forEach(function(plant) { %>
+                    <article>
+                        <img src="/images/<%= plant.image %>" alt="<%= plant.name %>">
+                        <h3><%= plant.name %></h3>
+                        <p><%= plant.scientific_name %></p>
+                        <a href="/plants/<%= plant.id %>">상세 정보 보기</a>
+                    </article>
+                <% }); %>
+            </section>
+
+        <% } %>
+
+    </main>
+
+</body>
+</html>
